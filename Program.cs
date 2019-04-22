@@ -8,7 +8,7 @@ namespace Game {
     public static void Main()
     {
 
-      Console.WriteLine("Would you like to play the higher/lower game? (Yes/No): ");
+      Console.WriteLine("Would you like to pick the number? (Yes/No): ");
       string startGame = Console.ReadLine();
       if (startGame == "Yes" || startGame == "yes" || startGame == "y" || startGame == "Y")
       {
@@ -49,6 +49,38 @@ namespace Game {
                };
 
            }
+           else {
+             Console.WriteLine("I've picked a number. What is your guess?");
+               int x = 0;
+               Random rnd = new Random();
+               int randomNumber = rnd.Next(1,101);
+               Console.WriteLine(randomNumber);
+                 for (int i = 0; x == 0; i++)
+                 {
+                   string guess = Console.ReadLine();
+                   int yourNumber = int.Parse(guess);
+
+                   bool high = yourNumber < randomNumber;
+                   bool low = yourNumber > randomNumber;
+                   bool correct = yourNumber == randomNumber;
+                   if (high)
+                          {
+                              Console.WriteLine("Higher");
+                          }
+                          else if (low)
+                          {
+                              Console.WriteLine("Lower");
+                          }
+                          else if (correct)
+                          {
+                              x = 1;
+                              Console.WriteLine("You are correct");
+                              break;
+                          }
+                          else Console.WriteLine("Please enter a valid choice");
+                      };
+
+                  }
+           }
        }
    }
- }
