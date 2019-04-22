@@ -12,41 +12,43 @@ namespace Game {
       string startGame = Console.ReadLine();
       if (startGame == "Yes" || startGame == "yes" || startGame == "y" || startGame == "Y")
       {
-        
-      }
-      else
-      {
-        Console.WriteLine("GoodBye");
-      }
-      //
-      // int maxPrice = int.Parse(stringMaxPrice);
-      //
-      // Console.WriteLine("Enter maximum miles: ");
-      // string stringMaxMiles = Console.ReadLine();
-      // int maxMiles = int.Parse(stringMaxMiles);
-      //
-      // List<Car> CarsMatchingSearch = new List<Car>(0);
-      //
-      // foreach (Car automobile in Cars)
-      // {
-      //   if (automobile.WorthBuying(maxPrice) && automobile.WorthMiles(maxMiles))
-      //   {
-      //     CarsMatchingSearch.Add(automobile);
-      //   } else if (!automobile.WorthBuying(maxPrice) && !automobile.WorthMiles(maxMiles)) {
-      //     Console.WriteLine("Lower your standards");
-      //     break;
-      //   }
-      // }
-      //
-      // foreach(Car automobile in CarsMatchingSearch)
-      // {
-      //   Console.WriteLine("----------------------");
-      //   Console.WriteLine(automobile.GetMakeModel());
-      //   Console.WriteLine(automobile.GetMiles() + " miles");
-      //   Console.WriteLine("$" + automobile.GetPrice());
-      //   Console.WriteLine(automobile.GetColor());
-      // }
-    }
-  }
+        int x = 0;
+        int number = 50;
+        int highNum = 100;
+        int lowNum = 0;
+          for (int i = 0; x == 0; i++)
+          {
+            Console.WriteLine("Is your number higher or lower than " + number + "? [higher/lower/correct]");
+            string answer = Console.ReadLine();
 
-}
+            bool high = answer == "higher";
+            bool low = answer == "lower";
+            bool correct = answer == "correct";
+            if (high)
+                   {
+                       if(lowNum <= number)
+                       {
+                           lowNum = number;
+                       };
+                       number = number + (highNum - lowNum)/2;
+                   }
+                   else if (low)
+                   {
+                       if(highNum >= number)
+                       {
+                           highNum = number;
+                       };
+                       number = number - (highNum - lowNum) / 2;
+                   }
+                   else if (correct)
+                   {
+                       x = 1;
+                       break;
+                   }
+                   else Console.WriteLine("Please enter a valid choice");
+               };
+
+           }
+       }
+   }
+ }
